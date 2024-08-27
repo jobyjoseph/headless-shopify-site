@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). The project is trying to create a headless version of Shopify native dawn theme.
 
+Demo link: https://headless-shopify-site.vercel.app/
+
 ## Running the code
 
 Download the code.
