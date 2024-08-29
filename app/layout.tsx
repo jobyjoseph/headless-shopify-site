@@ -25,6 +25,9 @@ export default function RootLayout({
         {/* TODO: preconnect if settings.type_header_font.system? and settings.type_body_font.system? <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin/> */}
         {/* TODO: Load social meta tags */}
         <Script src="/scripts/constants.js" />
+        <Script src="/scripts/pubsub.js" />
+        <Script src="/scripts/global.js" />
+        <Script src="/scripts/animations.js" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
