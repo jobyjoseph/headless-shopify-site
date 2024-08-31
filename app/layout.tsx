@@ -29,7 +29,7 @@ export default function RootLayout({
         <Script src="/scripts/global.js" />
         <Script src="/scripts/animations.js" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className="gradient">{children}</body>
     </html>
   );
 }
