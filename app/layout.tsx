@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/assets/base.scss";
+import "./globals.scss";
 import Script from "next/script";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Headless Shopify site",
@@ -29,7 +27,15 @@ export default function RootLayout({
         <Script src="/scripts/global.js" />
         <Script src="/scripts/animations.js" />
       </head>
-      <body className="gradient">{children}</body>
+      <body className="gradient">
+        <a
+          className="skip-to-content-link button visually-hidden"
+          href="#MainContent"
+        >
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
