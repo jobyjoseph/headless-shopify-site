@@ -34,7 +34,14 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        {children}
+        <main
+          id="MainContent"
+          className="content-for-layout focus-none"
+          role="main"
+          tabIndex={-1}
+        >
+          {children}
+        </main>
       </body>
     </html>
   );
