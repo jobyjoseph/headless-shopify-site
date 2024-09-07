@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/assets/base.scss";
 import "./globals.scss";
 import Script from "next/script";
-import AnnouncementBar from "@/components/announcement-bar/announcement-bar";
+import AnnouncementBar from "./_components/announcement-bar/announcement-bar";
 
 export const metadata: Metadata = {
   title: "Headless Shopify site",
