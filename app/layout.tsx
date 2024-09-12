@@ -3,17 +3,19 @@ import "@/assets/base.scss";
 import "./globals.scss";
 import Script from "next/script";
 import AnnouncementBar from "./_components/announcement-bar/announcement-bar";
+import { getThemeSettings } from "@/services/shopify/getThemeSettings";
 
 export const metadata: Metadata = {
   title: "Headless Shopify site",
   description: "Recreating dawn theme using headless",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  await getThemeSettings();
   return (
     // TODO: lang="{{ request.locale.iso_code }}"
     <html className="js" lang="en">

@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const shopifyStore = process?.env?.NEXT_PUBLIC_SHOPIFY_STORE_URL; // Your store domain
+const shopifyStore = process?.env?.NEXT_PUBLIC_SHOPIFY_DOMAIN; // Your store domain
 const accessToken = process?.env?.ADMIN_ACCESS_TOKEN; // Shopify Admin API access token
 
 type ShopifyTheme = {
@@ -32,6 +32,7 @@ async function getActiveTheme() {
       throw new Error("No active theme found");
     }
   } catch (error) {
+    console.log(error);
     console.error("Error getting active theme");
   }
 }
@@ -52,6 +53,7 @@ async function getThemeSettingsByThemeId(themeId: string) {
     );
 
     const themeSettings = JSON.parse(response.data.asset.value);
+    console.log(themeSettings);
     return themeSettings.current;
   } catch (error) {
     console.error("Error getting theme settings");
@@ -64,6 +66,7 @@ export async function getThemeSettings() {
     const themeId = await getActiveTheme();
     if (themeId) {
       const settings = await getThemeSettingsByThemeId(themeId);
+      console.log(settings.sections);
       return settings;
     }
   } catch (error) {
