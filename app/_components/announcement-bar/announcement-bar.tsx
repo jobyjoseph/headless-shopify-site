@@ -1,10 +1,17 @@
+"use client";
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 import "./component-slideshow.css";
 import "./component-slider.css";
 import "./component-list-social.css";
 
 function AnnouncementBar() {
+  const shopifyThemeSettings = useSelector(
+    (state: RootState) => state.shopifyTheme.settings
+  );
+  console.log(shopifyThemeSettings);
   return (
     <div className="utility-bar color-scheme-1 gradient utility-bar--bottom-border">
       <div className="page-width utility-bar__grid">

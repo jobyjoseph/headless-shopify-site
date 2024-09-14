@@ -4,6 +4,7 @@ import "./globals.scss";
 import Script from "next/script";
 import AnnouncementBar from "./_components/announcement-bar/announcement-bar";
 import { getThemeSettings } from "@/services/shopify/getThemeSettings";
+import StoreProvider from "./store-provider";
 
 export const metadata: Metadata = {
   title: "Headless Shopify site",
@@ -15,7 +16,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  await getThemeSettings();
+  const shopifyThemeSettings = await getThemeSettings();
   return (
     // TODO: lang="{{ request.locale.iso_code }}"
     <html className="js" lang="en">
@@ -31,21 +32,23 @@ export default async function RootLayout({
         <Script src="/scripts/animations.js" />
       </head>
       <body className="gradient">
-        <a
-          className="skip-to-content-link button visually-hidden"
-          href="#MainContent"
-        >
-          Skip to content
-        </a>
-        <AnnouncementBar />
-        <main
-          id="MainContent"
-          className="content-for-layout focus-none"
-          role="main"
-          tabIndex={-1}
-        >
-          {children}
-        </main>
+        <StoreProvider shopifyThemeSettings={shopifyThemeSettings}>
+          <a
+            className="skip-to-content-link button visually-hidden"
+            href="#MainContent"
+          >
+            Skip to content
+          </a>
+          <AnnouncementBar />
+          <main
+            id="MainContent"
+            className="content-for-layout focus-none"
+            role="main"
+            tabIndex={-1}
+          >
+            {children}
+          </main>
+        </StoreProvider>
       </body>
     </html>
   );
