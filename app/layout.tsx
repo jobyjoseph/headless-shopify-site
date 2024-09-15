@@ -5,6 +5,7 @@ import Script from "next/script";
 import AnnouncementBar from "./_components/announcement-bar/announcement-bar";
 import { getThemeSettings } from "@/services/shopify/getThemeSettings";
 import StoreProvider from "./store-provider";
+import { getSectionDetails } from "@/services/shopify/getSectionDetails";
 
 export const metadata: Metadata = {
   title: "Headless Shopify site",
@@ -17,6 +18,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const shopifyThemeSettings = await getThemeSettings();
+  await getSectionDetails();
   return (
     // TODO: lang="{{ request.locale.iso_code }}"
     <html className="js" lang="en">

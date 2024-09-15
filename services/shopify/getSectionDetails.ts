@@ -41,19 +41,16 @@ async function getActiveTheme() {
 async function getThemeSettingsByThemeId(themeId: string) {
   try {
     const response = await axios.get(
-      `https://${shopifyStore}/admin/api/2024-01/themes/${themeId}/assets.json`,
+      `https://96ad7f4f49cbc858be3ae184f4759b23:f8dd7c8f7c9a48728a4f712acae319e9@${shopifyStore}/admin/api/2023-07/themes.json`,
       {
-        headers: {
-          "X-Shopify-Access-Token": accessToken,
-        },
         params: {
-          "asset[key]": "config/settings_data.json",
+          "asset[key]": "sections/announcement-bar.liquid",
         },
       }
     );
 
     const themeSettings = JSON.parse(response.data.asset.value);
-
+    console.log(themeSettings);
     return themeSettings.current;
   } catch (error) {
     console.error("Error getting theme settings");
@@ -61,7 +58,7 @@ async function getThemeSettingsByThemeId(themeId: string) {
 }
 
 // Main function to retrieve and log theme settings
-export async function getThemeSettings() {
+export async function getSectionDetails() {
   try {
     const themeId = await getActiveTheme();
     if (themeId) {
