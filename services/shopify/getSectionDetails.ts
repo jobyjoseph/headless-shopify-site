@@ -57,7 +57,7 @@ async function getThemeSettingsByThemeId(themeId: string) {
   }
 }
 
-// Main function to retrieve and log theme settings
+// Main function to retrieve shopify section details
 export async function getSectionDetails() {
   try {
     const themeId = await getActiveTheme();
