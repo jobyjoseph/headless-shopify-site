@@ -53,7 +53,7 @@ async function getThemeSettingsByThemeId(themeId: string) {
     console.log(themeSettings);
     return themeSettings.current;
   } catch (error) {
-    console.error("Error getting theme settings");
+    console.error("Error getting theme sections");
   }
 }
 
