@@ -6,6 +6,7 @@ import AnnouncementBar from "./_components/announcement-bar/announcement-bar";
 import { getThemeSettings } from "@/services/shopify/getThemeSettings";
 import StoreProvider from "./store-provider";
 import { getSectionDetails } from "@/services/shopify/getSectionDetails";
+import Header from "./_components/header/header";
 
 export const metadata: Metadata = {
   title: "Headless Shopify site",
@@ -42,6 +43,7 @@ export default async function RootLayout({
             Skip to content
           </a>
           <AnnouncementBar />
+          <Header />
           <main
             id="MainContent"
             className="content-for-layout focus-none"
